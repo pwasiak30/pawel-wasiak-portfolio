@@ -6,343 +6,325 @@
 <title>Paweł Wasiak — student psychologii | AHE Łódź</title>
 <meta name="description" content="Paweł Wasiak — student psychologii na AHE w Łodzi. Projekty edukacyjne: Wolna Głowa, wyszukiwarka ICD-11/DSM-5, Nowy Dzień, kanał YouTube.">
 <style>
-  :root{
-    --bg: #0f0f14;
-    --bg-alt: #16161f;
-    --card: #1c1c28;
-    --text: #f3f2f7;
-    --text-dim: #a8a6b8;
-    --accent: #ff5d3a;
-    --accent2: #7c5cff;
-    --accent3: #22d3a5;
-    --border: #2a2a38;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-    overflow-x:hidden;
-  }
-  a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
-
-  /* NAV */
-  nav{
-    position:sticky;top:0;z-index:50;
-    background:rgba(15,15,20,0.85);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
-  .logo{font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;}
-  .logo span{color:var(--accent);}
-  .navlinks{display:flex;gap:28px;font-size:0.9rem;color:var(--text-dim);}
-  .navlinks a:hover{color:var(--text);}
-  @media(max-width:640px){.navlinks{display:none;}}
-
-  /* HERO */
-  header.hero{
-    position:relative;
-    padding:110px 0 90px;
-    overflow:hidden;
-  }
-  header.hero::before{
-    content:"";
-    position:absolute;top:-200px;right:-200px;
-    width:600px;height:600px;border-radius:50%;
-    background:radial-gradient(circle, rgba(255,93,58,0.25), transparent 70%);
-    filter:blur(40px);
-  }
-  header.hero::after{
-    content:"";
-    position:absolute;bottom:-250px;left:-150px;
-    width:500px;height:500px;border-radius:50%;
-    background:radial-gradient(circle, rgba(124,92,255,0.2), transparent 70%);
-    filter:blur(40px);
-  }
-  .hero-inner{position:relative;z-index:1;}
-  .eyebrow{
-    display:inline-block;
-    font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
-    color:var(--accent3);
-    background:rgba(34,211,165,0.1);
-    border:1px solid rgba(34,211,165,0.3);
-    padding:6px 14px;border-radius:999px;
-    margin-bottom:24px;
-  }
-  h1{
-    font-size:clamp(2.4rem, 5.5vw, 4.2rem);
-    font-weight:800;
-    letter-spacing:-0.03em;
-    line-height:1.05;
-    max-width:820px;
-  }
-  h1 .grad{
-    background:linear-gradient(90deg, var(--accent), var(--accent2));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .hero p.lead{
-    margin-top:24px;
-    font-size:1.15rem;
-    color:var(--text-dim);
-    max-width:640px;
-  }
-  .hero-cta{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;}
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:14px 26px;border-radius:12px;
-    font-weight:700;font-size:0.95rem;
-    transition:transform 0.15s ease, box-shadow 0.15s ease;
-    border:1px solid transparent;
-  }
-  .btn-primary{
-    background:linear-gradient(90deg, var(--accent), #ff8a3a);
-    color:#1a0e08;
-    box-shadow:0 8px 24px rgba(255,93,58,0.35);
-  }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,93,58,0.45);}
-  .btn-ghost{
-    border-color:var(--border);
-    color:var(--text);
-  }
-  .btn-ghost:hover{border-color:var(--accent2);transform:translateY(-2px);}
-
-  /* SECTION HEAD */
-  .section{padding:90px 0;}
-  .section-tag{
-    font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
-    color:var(--accent2);margin-bottom:12px;
-  }
-  .section h2{
-    font-size:clamp(1.8rem,3.5vw,2.6rem);
-    font-weight:800;letter-spacing:-0.02em;
-    max-width:700px;
-    margin-bottom:20px;
-  }
-
-  /* ABOUT */
-  .about-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;margin-top:40px;
-  }
-  @media(max-width:800px){.about-grid{grid-template-columns:1fr;}}
-  .about-grid p{color:var(--text-dim);margin-bottom:16px;font-size:1.02rem;}
-  .about-grid strong{color:var(--text);}
-  .facts{
-    display:grid;grid-template-columns:1fr 1fr;gap:14px;
-  }
-  .fact{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:14px;
-    padding:18px;
-  }
-  .fact .n{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent3);font-weight:700;margin-bottom:6px;}
-  .fact .v{font-size:0.95rem;color:var(--text);}
-
-  .story-box{
-    margin-top:36px;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-left:3px solid var(--accent);
-    border-radius:14px;
-    padding:28px;
-  }
-  .story-box h3{font-size:1.1rem;margin-bottom:12px;color:var(--accent);}
-  .story-box p{color:var(--text-dim);font-size:0.98rem;margin-bottom:12px;}
-  .story-box p:last-child{margin-bottom:0;}
-
-  /* PROJECTS */
-  .projects-grid{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px;
-  }
-  @media(max-width:760px){.projects-grid{grid-template-columns:1fr;}}
-  .card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:30px;
-    position:relative;
-    overflow:hidden;
-    transition:transform 0.2s ease, border-color 0.2s ease;
-    display:flex;flex-direction:column;
-  }
-  .card:hover{transform:translateY(-4px);border-color:var(--accent2);}
-  .card .icon{
-    width:52px;height:52px;border-radius:14px;
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.5rem;margin-bottom:20px;
-  }
-  .card h3{font-size:1.25rem;margin-bottom:10px;letter-spacing:-0.01em;}
-  .card p{color:var(--text-dim);font-size:0.95rem;flex-grow:1;margin-bottom:20px;}
-  .card .link{
-    font-weight:700;font-size:0.9rem;
-    display:inline-flex;align-items:center;gap:6px;
-    color:var(--accent);
-  }
-  .card .link:hover{gap:10px;}
-  .icon-1{background:rgba(255,93,58,0.15);}
-  .icon-2{background:rgba(124,92,255,0.15);}
-  .icon-3{background:rgba(34,211,165,0.15);}
-  .icon-4{background:rgba(255,206,58,0.15);}
-
-  /* INTERESTS */
-  .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;}
-  .chip{
-    background:var(--bg-alt);
-    border:1px solid var(--border);
-    padding:10px 18px;border-radius:999px;
-    font-size:0.9rem;color:var(--text-dim);
-    display:flex;align-items:center;gap:8px;
-  }
-
-  /* CONTACT */
-  .contact-card{
-    margin-top:40px;
-    background:linear-gradient(135deg, rgba(255,93,58,0.12), rgba(124,92,255,0.12));
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:50px;
-    text-align:center;
-  }
-  .contact-card h2{margin-bottom:12px;}
-  .contact-card p{color:var(--text-dim);max-width:520px;margin:0 auto 30px;}
-
-  footer{
-    border-top:1px solid var(--border);
-    padding:36px 0;
-    color:var(--text-dim);
-    font-size:0.85rem;
-    text-align:center;
-  }
-  footer a{color:var(--accent3);}
+:root{
+--bg: #0f0f14;
+--bg-alt: #16161f;
+--card: #1c1c28;
+--text: #f3f2f7;
+--text-dim: #a8a6b8;
+--accent: #ff5d3a;
+--accent2: #7c5cff;
+--accent3: #22d3a5;
+--border: #2a2a38;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+font-family:'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+/* NAV */
+nav{
+position:sticky;top:0;z-index:50;
+background:rgba(15,15,20,0.85);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--border);
+}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.logo{font-weight:800;font-size:1.1rem;letter-spacing:-0.02em;}
+.logo span{color:var(--accent);}
+.navlinks{display:flex;gap:28px;font-size:0.9rem;color:var(--text-dim);}
+.navlinks a:hover{color:var(--text);}
+@media(max-width:640px){.navlinks{display:none;}}
+/* HERO */
+header.hero{
+position:relative;
+padding:110px 0 90px;
+overflow:hidden;
+}
+header.hero::before{
+content:"";
+position:absolute;top:-200px;right:-200px;
+width:600px;height:600px;border-radius:50%;
+background:radial-gradient(circle, rgba(255,93,58,0.25), transparent 70%);
+filter:blur(40px);
+}
+header.hero::after{
+content:"";
+position:absolute;bottom:-250px;left:-150px;
+width:500px;height:500px;border-radius:50%;
+background:radial-gradient(circle, rgba(124,92,255,0.2), transparent 70%);
+filter:blur(40px);
+}
+.hero-inner{position:relative;z-index:1;}
+.eyebrow{
+display:inline-block;
+font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+color:var(--accent3);
+background:rgba(34,211,165,0.1);
+border:1px solid rgba(34,211,165,0.3);
+padding:6px 14px;border-radius:999px;
+margin-bottom:24px;
+}
+h1{
+font-size:clamp(2.4rem, 5.5vw, 4.2rem);
+font-weight:800;
+letter-spacing:-0.03em;
+line-height:1.05;
+max-width:820px;
+}
+h1 .grad{
+background:linear-gradient(90deg, var(--accent), var(--accent2));
+-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lead{
+margin-top:24px;
+font-size:1.15rem;
+color:var(--text-dim);
+max-width:640px;
+}
+.hero-cta{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;}
+.btn{
+display:inline-flex;align-items:center;gap:8px;
+padding:14px 26px;border-radius:12px;
+font-weight:700;font-size:0.95rem;
+transition:transform 0.15s ease, box-shadow 0.15s ease;
+border:1px solid transparent;
+}
+.btn-primary{
+background:linear-gradient(90deg, var(--accent), #ff8a3a);
+color:#1a0e08;
+box-shadow:0 8px 24px rgba(255,93,58,0.35);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,93,58,0.45);}
+.btn-ghost{
+border-color:var(--border);
+color:var(--text);
+}
+.btn-ghost:hover{border-color:var(--accent2);transform:translateY(-2px);}
+/* SECTION HEAD */
+.section{padding:90px 0;}
+.section-tag{
+font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+color:var(--accent2);margin-bottom:12px;
+}
+.section h2{
+font-size:clamp(1.8rem,3.5vw,2.6rem);
+font-weight:800;letter-spacing:-0.02em;
+max-width:700px;
+margin-bottom:20px;
+}
+/* ABOUT */
+.about-grid{
+display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;margin-top:40px;
+}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr;}}
+.about-grid p{color:var(--text-dim);margin-bottom:16px;font-size:1.02rem;}
+.about-grid strong{color:var(--text);}
+.facts{
+display:grid;grid-template-columns:1fr 1fr;gap:14px;
+}
+.fact{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:14px;
+padding:18px;
+}
+.fact .n{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent3);font-weight:700;margin-bottom:6px;}
+.fact .v{font-size:0.95rem;color:var(--text);}
+.story-box{
+margin-top:36px;
+background:var(--card);
+border:1px solid var(--border);
+border-left:3px solid var(--accent);
+border-radius:14px;
+padding:28px;
+}
+.story-box h3{font-size:1.1rem;margin-bottom:12px;color:var(--accent);}
+.story-box p{color:var(--text-dim);font-size:0.98rem;margin-bottom:12px;}
+.story-box p:last-child{margin-bottom:0;}
+/* PROJECTS */
+.projects-grid{
+display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:40px;
+}
+@media(max-width:760px){.projects-grid{grid-template-columns:1fr;}}
+.card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:30px;
+position:relative;
+overflow:hidden;
+transition:transform 0.2s ease, border-color 0.2s ease;
+display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--accent2);}
+.card .icon{
+width:52px;height:52px;border-radius:14px;
+display:flex;align-items:center;justify-content:center;
+font-size:1.5rem;margin-bottom:20px;
+}
+.card h3{font-size:1.25rem;margin-bottom:10px;letter-spacing:-0.01em;}
+.card p{color:var(--text-dim);font-size:0.95rem;flex-grow:1;margin-bottom:20px;}
+.card .link{
+font-weight:700;font-size:0.9rem;
+display:inline-flex;align-items:center;gap:6px;
+color:var(--accent);
+}
+.card .link:hover{gap:10px;}
+.icon-1{background:rgba(255,93,58,0.15);}
+.icon-2{background:rgba(124,92,255,0.15);}
+.icon-3{background:rgba(34,211,165,0.15);}
+.icon-4{background:rgba(255,206,58,0.15);}
+.icon-5{background:rgba(58,158,255,0.15);}
+/* INTERESTS */
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;}
+.chip{
+background:var(--bg-alt);
+border:1px solid var(--border);
+padding:10px 18px;border-radius:999px;
+font-size:0.9rem;color:var(--text-dim);
+display:flex;align-items:center;gap:8px;
+}
+/* CONTACT */
+.contact-card{
+margin-top:40px;
+background:linear-gradient(135deg, rgba(255,93,58,0.12), rgba(124,92,255,0.12));
+border:1px solid var(--border);
+border-radius:22px;
+padding:50px;
+text-align:center;
+}
+.contact-card h2{margin-bottom:12px;}
+.contact-card p{color:var(--text-dim);max-width:520px;margin:0 auto 30px;}
+footer{
+border-top:1px solid var(--border);
+padding:36px 0;
+color:var(--text-dim);
+font-size:0.85rem;
+text-align:center;
+}
+footer a{color:var(--accent3);}
 </style>
 </head>
 <body>
-
 <nav>
-  <div class="wrap">
-    <div class="logo">Paweł <span>Wasiak</span></div>
-    <div class="navlinks">
-      <a href="#o-mnie">O mnie</a>
-      <a href="#projekty">Projekty</a>
-      <a href="#kontakt">Kontakt</a>
-    </div>
-    <a href="#kontakt" class="btn btn-ghost" style="padding:10px 20px;font-size:0.85rem;">Napisz do mnie</a>
-  </div>
+<div class="wrap">
+<div class="logo">Paweł <span>Wasiak</span></div>
+<div class="navlinks">
+<a href="#o-mnie">O mnie</a>
+<a href="#projekty">Projekty</a>
+<a href="#kontakt">Kontakt</a>
+</div>
+<a href="#kontakt" class="btn btn-ghost" style="padding:10px 20px;font-size:0.85rem;">Napisz do mnie</a>
+</div>
 </nav>
-
 <header class="hero">
-  <div class="wrap hero-inner">
-    <span class="eyebrow">Student psychologii · AHE Łódź</span>
-    <h1>Psychologia, którą <span class="grad">rozumiem od środka.</span></h1>
-    <p class="lead">Nazywam się Paweł Wasiak. Studiuję psychologię, bo sam przeszedłem drogę, którą dziś staram się rozumieć naukowo — i budować z tego narzędzia, które realnie komuś pomagają.</p>
-    <div class="hero-cta">
-      <a href="#projekty" class="btn btn-primary">Zobacz moje projekty ↓</a>
-      <a href="#o-mnie" class="btn btn-ghost">Poznaj moją historię</a>
-    </div>
-  </div>
+<div class="wrap hero-inner">
+<span class="eyebrow">Student psychologii · AHE Łódź</span>
+<h1>Psychologia, którą <span class="grad">rozumiem od środka.</span></h1>
+<p class="lead">Nazywam się Paweł Wasiak. Studiuję psychologię, bo sam przeszedłem drogę, którą dziś staram się rozumieć naukowo — i budować z tego narzędzia, które realnie komuś pomagają.</p>
+<div class="hero-cta">
+<a href="#projekty" class="btn btn-primary">Zobacz moje projekty ↓</a>
+<a href="#o-mnie" class="btn btn-ghost">Poznaj moją historię</a>
+</div>
+</div>
 </header>
-
 <section class="section" id="o-mnie">
-  <div class="wrap">
-    <div class="section-tag">O mnie</div>
-    <h2>Od pytań bez odpowiedzi do studiów psychologicznych</h2>
-
-    <div class="about-grid">
-      <div>
-        <p>Wychowałem się jako Świadek Jehowy — w organizacji, którą przez wiele lat uznawałem za jedyną słuszną drogę. Obowiązkowe zebrania, głoszenie od drzwi do drzwi, zasady dotyczące niemal każdej dziedziny życia, lęk przed wątpliwościami — to była moja codzienność.</p>
-        <p>Wyjście z organizacji nie było jednym wydarzeniem, tylko długim procesem: pojedyncze pytania, na które nie umiałem sobie odpowiedzieć, a potem coraz większa świadomość, jak bardzo moje myśli i decyzje były przez lata kształtowane przez grupę, a nie przeze mnie samego.</p>
-        <p><strong>To doświadczenie było bezpośrednim powodem</strong>, dla którego zdecydowałem się studiować psychologię na Akademii Humanistyczno-Ekonomicznej w Łodzi. W trakcie studiów natrafiłem na model BITE Stephena Hassana i napisałem o nim artykuł naukowy — możesz go przeczytać na stronie projektu <em>Wolna Głowa</em> poniżej.</p>
-      </div>
-      <div class="facts">
-        <div class="fact"><div class="n">Kierunek</div><div class="v">Psychologia, AHE Łódź</div></div>
-        <div class="fact"><div class="n">Pochodzenie</div><div class="v">Siedlce (Podlasie)</div></div>
-        <div class="fact"><div class="n">Mieszka</div><div class="v">Brzeziny, woj. łódzkie</div></div>
-        <div class="fact"><div class="n">Publikacja</div><div class="v">Analiza modelu BITE — ORCID 0009-0004-6555-3156</div></div>
-        <div class="fact"><div class="n">Zainteresowania</div><div class="v">Trauma po sektach, uzależnienia, C-PTSD</div></div>
-        <div class="fact"><div class="n">Poza pracą</div><div class="v">Piesze wycieczki, gitara</div></div>
-      </div>
-    </div>
-
-    <div class="story-box">
-      <h3>Dlaczego to robię</h3>
-      <p>Moje projekty powstają z myślą o osobach, które dziś są tam, gdzie ja byłem kilka lat temu — czują, że coś jest nie tak, ale nie mają jeszcze słów ani narzędzi, żeby to nazwać. Łączę wiedzę psychologiczną z prostymi, dostępnymi narzędziami online: bez logowania, bez zbierania danych, bez oceniania.</p>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-tag">O mnie</div>
+<h2>Od pytań bez odpowiedzi do studiów psychologicznych</h2>
+<div class="about-grid">
+<div>
+<p>Wychowałem się jako Świadek Jehowy — w organizacji, którą przez wiele lat uznawałem za jedyną słuszną drogę. Obowiązkowe zebrania, głoszenie od drzwi do drzwi, zasady dotyczące niemal każdej dziedziny życia, lęk przed wątpliwościami — to była moja codzienność.</p>
+<p>Wyjście z organizacji nie było jednym wydarzeniem, tylko długim procesem: pojedyncze pytania, na które nie umiałem sobie odpowiedzieć, a potem coraz większa świadomość, jak bardzo moje myśli i decyzje były przez lata kształtowane przez grupę, a nie przeze mnie samego.</p>
+<p><strong>To doświadczenie było bezpośrednim powodem</strong>, dla którego zdecydowałem się studiować psychologię na Akademii Humanistyczno-Ekonomicznej w Łodzi. W trakcie studiów natrafiłem na model BITE Stephena Hassana i napisałem o nim artykuł naukowy — możesz go przeczytać na stronie projektu <em>Wolna Głowa</em> poniżej.</p>
+</div>
+<div class="facts">
+<div class="fact"><div class="n">Kierunek</div><div class="v">Psychologia, AHE Łódź</div></div>
+<div class="fact"><div class="n">Pochodzenie</div><div class="v">Siedlce (Podlasie)</div></div>
+<div class="fact"><div class="n">Mieszka</div><div class="v">Brzeziny, woj. łódzkie</div></div>
+<div class="fact"><div class="n">Publikacja</div><div class="v">Analiza modelu BITE — ORCID 0009-0004-6555-3156</div></div>
+<div class="fact"><div class="n">Zainteresowania</div><div class="v">Trauma po sektach, uzależnienia, C-PTSD</div></div>
+<div class="fact"><div class="n">Poza pracą</div><div class="v">Piesze wycieczki, gitara</div></div>
+</div>
+</div>
+<div class="story-box">
+<h3>Dlaczego to robię</h3>
+<p>Moje projekty powstają z myślą o osobach, które dziś są tam, gdzie ja byłem kilka lat temu — czują, że coś jest nie tak, ale nie mają jeszcze słów ani narzędzi, żeby to nazwać. Łączę wiedzę psychologiczną z prostymi, dostępnymi narzędziami online: bez logowania, bez zbierania danych, bez oceniania.</p>
+</div>
+</div>
 </section>
-
 <section class="section" id="projekty" style="background:var(--bg-alt);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
-  <div class="wrap">
-    <div class="section-tag">Projekty</div>
-    <h2>Narzędzia, które tworzę</h2>
-    <p style="color:var(--text-dim);max-width:640px;">Cztery miejsca, w których łączę psychologię z praktyką — od edukacji o sektach, przez klasyfikacje diagnostyczne, po wsparcie w trzeźwości i treści na YouTube.</p>
-
-    <div class="projects-grid">
-
-      <a class="card" href="https://wolna-glowa.netlify.app/" target="_blank" rel="noopener">
-        <div class="icon icon-1">🧠</div>
-        <h3>Wolna Głowa</h3>
-        <p>Test oparty na modelu BITE Stephena Hassana — pomaga sprawdzić, czy grupa, wspólnota czy relacja Cię kontroluje. Zawiera też mój artykuł naukowy o mechanizmach kontroli na przykładzie Świadków Jehowy.</p>
-        <span class="link">wolna-glowa.netlify.app →</span>
-      </a>
-
-      <a class="card" href="https://icd11-dsm5-search.netlify.app/" target="_blank" rel="noopener">
-        <div class="icon icon-2">🔎</div>
-        <h3>Wyszukiwarka ICD-11 / DSM-5</h3>
-        <p>Szybkie wyszukiwanie zaburzeń psychicznych po nazwie, kodzie ICD-11 czy DSM-5. Działa w pełni offline, bez logowania — praktyczne narzędzie dla studentów i praktyków.</p>
-        <span class="link">icd11-dsm5-search.netlify.app →</span>
-      </a>
-
-      <a class="card" href="https://nie-pij-dzis.netlify.app/" target="_blank" rel="noopener">
-        <div class="icon icon-3">☀️</div>
-        <h3>Nowy Dzień — tracker trzeźwości</h3>
-        <p>Aplikacja wspierająca drogę do trzeźwości: licznik dni, dziennik nastroju i wyzwalaczy, kamienie milowe, kalkulator oszczędności. Dane trzymane wyłącznie lokalnie, bez konta.</p>
-        <span class="link">nie-pij-dzis.netlify.app →</span>
-      </a>
-
-      <a class="card" href="https://www.youtube.com/@psychologia_wasiak" target="_blank" rel="noopener">
-        <div class="icon icon-4">▶️</div>
-        <h3>Psychologia Wasiak</h3>
-        <p>Kanał YouTube, na którym tłumaczę zagadnienia psychologiczne w przystępny sposób — od mechanizmów kontroli w grupach po tematy związane ze zdrowiem psychicznym.</p>
-        <span class="link">youtube.com/@psychologia_wasiak →</span>
-      </a>
-
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-tag">Projekty</div>
+<h2>Narzędzia, które tworzę</h2>
+<p style="color:var(--text-dim);max-width:640px;">Miejsca, w których łączę psychologię z praktyką — od edukacji o sektach, przez klasyfikacje diagnostyczne, wsparcie w trzeźwości i materiały AAC, po treści na YouTube.</p>
+<div class="projects-grid">
+<a class="card" href="https://wolna-glowa.netlify.app/" target="_blank" rel="noopener">
+<div class="icon icon-1">🧠</div>
+<h3>Wolna Głowa</h3>
+<p>Test oparty na modelu BITE Stephena Hassana — pomaga sprawdzić, czy grupa, wspólnota czy relacja Cię kontroluje. Zawiera też mój artykuł naukowy o mechanizmach kontroli na przykładzie Świadków Jehowy.</p>
+<span class="link">wolna-glowa.netlify.app →</span>
+</a>
+<a class="card" href="https://icd11-dsm5-search.netlify.app/" target="_blank" rel="noopener">
+<div class="icon icon-2">🔎</div>
+<h3>Wyszukiwarka ICD-11 / DSM-5</h3>
+<p>Szybkie wyszukiwanie zaburzeń psychicznych po nazwie, kodzie ICD-11 czy DSM-5. Działa w pełni offline, bez logowania — praktyczne narzędzie dla studentów i praktyków.</p>
+<span class="link">icd11-dsm5-search.netlify.app →</span>
+</a>
+<a class="card" href="https://nie-pij-dzis.netlify.app/" target="_blank" rel="noopener">
+<div class="icon icon-3">☀️</div>
+<h3>Nowy Dzień — tracker trzeźwości</h3>
+<p>Aplikacja wspierająca drogę do trzeźwości: licznik dni, dziennik nastroju i wyzwalaczy, kamienie milowe, kalkulator oszczędności. Dane trzymane wyłącznie lokalnie, bez konta.</p>
+<span class="link">nie-pij-dzis.netlify.app →</span>
+</a>
+<a class="card" href="https://pwasiak30.github.io/aac-generator/" target="_blank" rel="noopener">
+<div class="icon icon-5">🗣️</div>
+<h3>Generator AAC</h3>
+<p>Narzędzie do tworzenia materiałów wspomagającej komunikacji (AAC) z piktogramami ARASAAC: karty, harmonogram dnia i tablica komunikacyjna z budowaniem zdań. Stworzone z myślą o pracy z dziećmi w szkole specjalnej.</p>
+<span class="link">pwasiak30.github.io/aac-generator →</span>
+</a>
+<a class="card" href="https://www.youtube.com/@psychologia_wasiak" target="_blank" rel="noopener">
+<div class="icon icon-4">▶️</div>
+<h3>Psychologia Wasiak</h3>
+<p>Kanał YouTube, na którym tłumaczę zagadnienia psychologiczne w przystępny sposób — od mechanizmów kontroli w grupach po tematy związane ze zdrowiem psychicznym.</p>
+<span class="link">youtube.com/@psychologia_wasiak →</span>
+</a>
+</div>
+</div>
 </section>
-
 <section class="section">
-  <div class="wrap">
-    <div class="section-tag">Poza psychologią</div>
-    <h2>Trochę więcej o mnie</h2>
-    <div class="chips">
-      <span class="chip">🥾 Piesze wycieczki</span>
-      <span class="chip">🎸 Gra na gitarze</span>
-      <span class="chip">📍 Podlasie z pochodzenia, Łódzkie z wyboru</span>
-      <span class="chip">🕊️ Ocalały ze Świadków Jehowy</span>
-      <span class="chip">📖 Autor analizy naukowej o modelu BITE</span>
-    </div>
-  </div>
+<div class="wrap">
+<div class="section-tag">Poza psychologią</div>
+<h2>Trochę więcej o mnie</h2>
+<div class="chips">
+<span class="chip">🥾 Piesze wycieczki</span>
+<span class="chip">🎸 Gra na gitarze</span>
+<span class="chip">📍 Podlasie z pochodzenia, Łódzkie z wyboru</span>
+<span class="chip">🕊️ Ocalały ze Świadków Jehowy</span>
+<span class="chip">📖 Autor analizy naukowej o modelu BITE</span>
+</div>
+</div>
 </section>
-
 <section class="section" id="kontakt">
-  <div class="wrap">
-    <div class="contact-card">
-      <h2>Napiszmy razem coś dobrego</h2>
-      <p>Masz pytanie o któryś z projektów, chcesz porozmawiać o współpracy albo po prostu podzielić się swoją historią? Chętnie odpowiem.</p>
-      <a class="btn btn-primary" href="mailto:pwasiak30@gmail.com">✉️ pwasiak30@gmail.com</a>
-    </div>
-  </div>
+<div class="wrap">
+<div class="contact-card">
+<h2>Napiszmy razem coś dobrego</h2>
+<p>Masz pytanie o któryś z projektów, chcesz porozmawiać o współpracy albo po prostu podzielić się swoją historią? Chętnie odpowiem.</p>
+<a class="btn btn-primary" href="mailto:pwasiak30@gmail.com">✉️ pwasiak30@gmail.com</a>
+</div>
+</div>
 </section>
-
 <footer>
-  <div class="wrap">
-    Paweł Wasiak · Student psychologii, AHE w Łodzi · <a href="mailto:pwasiak30@gmail.com">pwasiak30@gmail.com</a>
-  </div>
+<div class="wrap">
+Paweł Wasiak · Student psychologii, AHE w Łodzi · <a href="mailto:pwasiak30@gmail.com">pwasiak30@gmail.com</a>
+</div>
 </footer>
-
 </body>
 </html>
