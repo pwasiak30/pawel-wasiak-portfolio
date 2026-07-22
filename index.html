@@ -211,9 +211,30 @@ font-size:0.85rem;
 text-align:center;
 }
 footer a{color:var(--accent3);}
+/* Przycisk wsparcia (Suppi) — zawsze widoczny */
+.coffee-fab{
+position:fixed;z-index:999;
+right:20px;bottom:20px;
+display:flex;align-items:center;gap:8px;
+background:linear-gradient(90deg, var(--accent), #ff8a3a);
+color:#1a0e08;
+font-weight:700;font-size:0.9rem;
+padding:12px 20px;border-radius:999px;
+box-shadow:0 8px 24px rgba(255,93,58,0.4);
+transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+.coffee-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,93,58,0.5);}
+.coffee-fab .coffee-icon{font-size:1.05rem;line-height:1;}
+@media(max-width:640px){
+.coffee-fab{right:14px;bottom:14px;padding:10px 16px;font-size:0.85rem;}
+}
 </style>
 </head>
 <body>
+<a class="coffee-fab" href="https://suppi.pl/pawelwasiak" target="_blank" rel="noopener" title="Postaw mi kawę na Suppi">
+<span class="coffee-icon">☕</span>
+<span>Postaw kawę</span>
+</a>
 <nav>
 <div class="wrap">
 <div class="logo">Paweł <span>Wasiak</span></div>
@@ -325,6 +346,7 @@ footer a{color:var(--accent3);}
 <h2>Napiszmy razem coś dobrego</h2>
 <p>Masz pytanie o któryś z projektów, chcesz porozmawiać o współpracy albo po prostu podzielić się swoją historią? Chętnie odpowiem.</p>
 <a class="btn btn-primary" href="mailto:pwasiak30@gmail.com">✉️ pwasiak30@gmail.com</a>
+<a class="btn btn-ghost" href="https://suppi.pl/pawelwasiak" target="_blank" rel="noopener" style="margin-left:14px;">☕ Postaw mi kawę na Suppi</a>
 </div>
 </div>
 </section>
