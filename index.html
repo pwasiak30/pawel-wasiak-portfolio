@@ -152,6 +152,23 @@ padding:18px;
 }
 .fact .n{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--accent3);font-weight:700;margin-bottom:6px;}
 .fact .v{font-size:0.95rem;color:var(--text);}
+.profile-photo{
+position:relative;
+border-radius:20px;
+overflow:hidden;
+border:1px solid var(--border);
+margin-bottom:20px;
+box-shadow:0 20px 50px rgba(0,0,0,0.35);
+background:var(--card);
+}
+.profile-photo img{display:block;width:100%;height:100%;max-height:420px;object-fit:cover;object-position:top center;}
+.profile-photo .caption{
+position:absolute;left:0;right:0;bottom:0;
+background:linear-gradient(to top, rgba(15,15,20,0.92), transparent);
+padding:22px 18px 14px;
+font-size:0.82rem;
+color:var(--text-dim);
+}
 .story-box{
 margin-top:36px;
 background:var(--card);
@@ -198,6 +215,7 @@ color:var(--accent);
 .icon-4{background:rgba(255,206,58,0.15);}
 .icon-5{background:rgba(58,158,255,0.15);}
 .icon-6{background:rgba(255,58,140,0.15);}
+.icon-7{background:rgba(2,146,169,0.15);}
 /* INTERESTS */
 .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;}
 .chip{
@@ -279,7 +297,7 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 <a class="social-icon" href="https://www.facebook.com/psychologia.wasiak" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.716-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.725 0 1.324-.6 1.324-1.325V1.325C24 .6 23.4 0 22.675 0z"/></svg></a>
 <a class="social-icon" href="https://github.com/pwasiak30" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
 <a class="social-icon" href="https://mastodon.social/@s3in610" target="_blank" rel="noopener" title="Mastodon" aria-label="Mastodon"><span class="emoji">🐘</span></a>
-<a class="social-icon" href="https://pwasiak30.github.io/pwasiak-linktree/" target="_blank" rel="noopener" title="Wszystkie linki" aria-label="Wszystkie linki"><span class="emoji">🔗</span></a>
+<a class="social-icon" href="http://linktree.wasiakpawel.pl/" target="_blank" rel="noopener" title="Wszystkie linki" aria-label="Wszystkie linki"><span class="emoji">🔗</span></a>
 </div>
 </div>
 </header>
@@ -293,6 +311,11 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 <p>Od zawsze pociąga mnie technologia, a szczególnie miejsce, w którym spotyka się z psychologią. Sam projektuję i koduję aplikacje internetowe wspierające naukę, diagnozę i terapię — od wyszukiwarek klasyfikacji diagnostycznych (ICD-11/DSM-5), przez generator materiałów AAC, po planer sesji dla terapeutów prowadzących trening umiejętności społecznych.</p>
 <p><strong>Na co dzień pracuję w środowisku Linux</strong> i cenię podejście open source — proste, dostępne narzędzia bez zbędnych ograniczeń, bez konta i bez zbierania danych. To filozofia, która przyświeca też moim własnym projektom.</p>
 </div>
+<div>
+<div class="profile-photo">
+<img src="pawel-wasiak.jpg" alt="Paweł Wasiak podczas zajęć z psychologii wprowadzającej na AHE w Łodzi" loading="lazy">
+<div class="caption">Podczas zajęć z psychologii wprowadzającej — AHE Łódź</div>
+</div>
 <div class="facts">
 <div class="fact"><div class="n">Kierunek</div><div class="v">Psychologia, AHE Łódź</div></div>
 <div class="fact"><div class="n">Pochodzenie</div><div class="v">Siedlce (Podlasie)</div></div>
@@ -300,6 +323,7 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 <div class="fact"><div class="n">Zainteresowania</div><div class="v">Technologia w psychologii, programowanie</div></div>
 <div class="fact"><div class="n">Systemy</div><div class="v">Linux, open source</div></div>
 <div class="fact"><div class="n">Poza pracą</div><div class="v">Piesze wycieczki, gitara</div></div>
+</div>
 </div>
 </div>
 <div class="story-box">
@@ -314,35 +338,41 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 <h2>Narzędzia, które tworzę</h2>
 <p style="color:var(--text-dim);max-width:640px;">Miejsca, w których łączę psychologię z praktyką — od edukacji o sektach, przez klasyfikacje diagnostyczne, wsparcie w trzeźwości i materiały AAC, po treści na YouTube.</p>
 <div class="projects-grid">
-<a class="card" href="https://pwasiak30.github.io/wolna-glowa/" target="_blank" rel="noopener">
+<a class="card" href="https://wolnaglowa.wasiakpawel.pl/" target="_blank" rel="noopener">
 <div class="icon icon-1">🧠</div>
 <h3>Wolna Głowa</h3>
 <p>Test oparty na modelu BITE Stephena Hassana — pomaga sprawdzić, czy grupa, wspólnota czy relacja Cię kontroluje. Zawiera też mój artykuł naukowy o mechanizmach kontroli na przykładzie Świadków Jehowy.</p>
-<span class="link">pwasiak30.github.io/wolna-glowa →</span>
+<span class="link">wolnaglowa.wasiakpawel.pl →</span>
 </a>
-<a class="card" href="https://pwasiak30.github.io/icd11-dsm5-search/" target="_blank" rel="noopener">
+<a class="card" href="http://icddsm.wasiakpawel.pl/" target="_blank" rel="noopener">
 <div class="icon icon-2">🔎</div>
 <h3>Wyszukiwarka ICD-11 / DSM-5</h3>
 <p>Szybkie wyszukiwanie zaburzeń psychicznych po nazwie, kodzie ICD-11 czy DSM-5. Działa w pełni offline, bez logowania — praktyczne narzędzie dla studentów i praktyków.</p>
-<span class="link">pwasiak30.github.io/icd11-dsm5-search →</span>
+<span class="link">icddsm.wasiakpawel.pl →</span>
 </a>
-<a class="card" href="https://pwasiak30.github.io/Nie-pij-dzis/" target="_blank" rel="noopener">
+<a class="card" href="https://niepijdzis.wasiakpawel.pl/" target="_blank" rel="noopener">
 <div class="icon icon-3">☀️</div>
 <h3>Nie pij dziś — tracker trzeźwości</h3>
 <p>Aplikacja wspierająca drogę do trzeźwości: licznik dni, dziennik nastroju i wyzwalaczy, kamienie milowe, kalkulator oszczędności. Dane trzymane wyłącznie lokalnie, bez konta.</p>
-<span class="link">pwasiak30.github.io/Nie-pij-dzis →</span>
+<span class="link">niepijdzis.wasiakpawel.pl →</span>
 </a>
-<a class="card" href="https://pwasiak30.github.io/aac-generator/" target="_blank" rel="noopener">
+<a class="card" href="http://aacgenerator.wasiakpawel.pl/" target="_blank" rel="noopener">
 <div class="icon icon-5">🗣️</div>
 <h3>Generator AAC</h3>
 <p>Narzędzie do tworzenia materiałów wspomagającej komunikacji (AAC) z piktogramami ARASAAC: karty, harmonogram dnia i tablica komunikacyjna z budowaniem zdań. Stworzone z myślą o pracy z dziećmi w szkole specjalnej.</p>
-<span class="link">pwasiak30.github.io/aac-generator →</span>
+<span class="link">aacgenerator.wasiakpawel.pl →</span>
 </a>
-<a class="card" href="https://pwasiak30.github.io/tus-planner/" target="_blank" rel="noopener">
+<a class="card" href="http://tusplanner.wasiakpawel.pl/" target="_blank" rel="noopener">
 <div class="icon icon-6">🧩</div>
 <h3>TUS Planner</h3>
 <p>Aplikacja dla terapeutów prowadzących trening umiejętności społecznych (TUS) z dziećmi ze spektrum autyzmu: biblioteka scenariuszy, planer sesji, tracker postępów, generator historyjek społecznych z piktogramami ARASAAC oraz drukowalne raporty. Dane offline, bez logowania.</p>
-<span class="link">pwasiak30.github.io/tus-planner →</span>
+<span class="link">tusplanner.wasiakpawel.pl →</span>
+</a>
+<a class="card" href="https://kwestionariusze.wasiakpawel.pl/" target="_blank" rel="noopener">
+<div class="icon icon-7">📋</div>
+<h3>Narzędzia Przesiewowe</h3>
+<p>Zbiór standaryzowanych kwestionariuszy psychodiagnostycznych z automatycznym liczeniem wyników: GAD-7, PHQ-9, PCL-5, BDI-II i AUDIT. Bez logowania, bez zbierania danych.</p>
+<span class="link">kwestionariusze.wasiakpawel.pl →</span>
 </a>
 <a class="card" href="https://www.youtube.com/@psychologia_wasiak" target="_blank" rel="noopener">
 <div class="icon icon-4">▶️</div>
@@ -387,7 +417,7 @@ Paweł Wasiak · Student psychologii, AHE w Łodzi · <a href="mailto:pwasiak30@
 <a class="social-icon" href="https://www.facebook.com/psychologia.wasiak" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.716-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.725 0 1.324-.6 1.324-1.325V1.325C24 .6 23.4 0 22.675 0z"/></svg></a>
 <a class="social-icon" href="https://github.com/pwasiak30" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
 <a class="social-icon" href="https://mastodon.social/@s3in610" target="_blank" rel="noopener" title="Mastodon" aria-label="Mastodon"><span class="emoji">🐘</span></a>
-<a class="social-icon" href="https://pwasiak30.github.io/pwasiak-linktree/" target="_blank" rel="noopener" title="Wszystkie linki" aria-label="Wszystkie linki"><span class="emoji">🔗</span></a>
+<a class="social-icon" href="http://linktree.wasiakpawel.pl/" target="_blank" rel="noopener" title="Wszystkie linki" aria-label="Wszystkie linki"><span class="emoji">🔗</span></a>
 </div>
 </div>
 </footer>
