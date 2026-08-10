@@ -40,7 +40,25 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .logo span{color:var(--accent);}
 .navlinks{display:flex;gap:28px;font-size:0.9rem;color:var(--text-dim);}
 .navlinks a:hover{color:var(--text);}
-@media(max-width:640px){.navlinks{display:none;}}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:38px;height:38px;background:none;border:none;cursor:pointer;padding:0;}
+.nav-toggle span{display:block;width:100%;height:2px;background:var(--text);border-radius:2px;transition:transform 0.2s ease, opacity 0.2s ease;}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(max-width:640px){
+.navlinks{
+display:none;
+position:absolute;top:64px;left:0;right:0;
+flex-direction:column;gap:0;
+background:rgba(15,15,20,0.98);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--border);
+}
+.navlinks.open{display:flex;}
+.navlinks a{padding:16px 24px;border-top:1px solid var(--border);}
+.nav-cta{display:none;}
+.nav-toggle{display:flex;}
+}
 /* HERO */
 header.hero{
 position:relative;
@@ -263,7 +281,7 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 .coffee-fab:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,93,58,0.5);}
 .coffee-fab .coffee-icon{font-size:1.05rem;line-height:1;}
 @media(max-width:640px){
-.coffee-fab{right:14px;bottom:14px;padding:10px 16px;font-size:0.85rem;}
+.coffee-fab{display:none;}
 }
 </style>
 </head>
@@ -275,12 +293,15 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 <nav>
 <div class="wrap">
 <div class="logo">Paweł <span>Wasiak</span></div>
-<div class="navlinks">
+<div class="navlinks" id="navlinks">
 <a href="#o-mnie">O mnie</a>
 <a href="#projekty">Projekty</a>
 <a href="#kontakt">Kontakt</a>
 </div>
-<a href="#kontakt" class="btn btn-ghost" style="padding:10px 20px;font-size:0.85rem;">Napisz do mnie</a>
+<a href="#kontakt" class="btn btn-ghost nav-cta" style="padding:10px 20px;font-size:0.85rem;">Napisz do mnie</a>
+<button class="nav-toggle" id="navToggle" aria-label="Otwórz menu" aria-expanded="false">
+<span></span><span></span><span></span>
+</button>
 </div>
 </nav>
 <header class="hero">
@@ -314,6 +335,10 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 <p>Studiuję psychologię na Akademii Humanistyczno-Ekonomicznej w Łodzi. Najbardziej interesuje mnie to, jak wiedzę psychologiczną przełożyć na coś praktycznego — nie tylko teorię z podręcznika, ale realne narzędzia, z których ktoś może skorzystać tu i teraz.</p>
 <p>Od zawsze pociąga mnie technologia, a szczególnie miejsce, w którym spotyka się z psychologią. Sam projektuję i koduję aplikacje internetowe wspierające naukę, diagnozę i terapię — od wyszukiwarek klasyfikacji diagnostycznych (ICD-11/DSM-5), przez generator materiałów AAC, po planer sesji dla terapeutów prowadzących trening umiejętności społecznych.</p>
 <p><strong>Na co dzień pracuję w środowisku Linux</strong> i cenię podejście open source — proste, dostępne narzędzia bez zbędnych ograniczeń, bez konta i bez zbierania danych. To filozofia, która przyświeca też moim własnym projektom.</p>
+<div class="story-box">
+<h3>Dlaczego to robię</h3>
+<p>Chcę, żeby psychologia była praktyczna i dostępna — dlatego zamiast poprzestawać na teorii, staram się przekładać ją na proste narzędzia online: bez logowania, bez zbierania danych, bez oceniania. Łączę to z moim zainteresowaniem technologią — programuję, eksperymentuję z narzędziami open source i dbam o to, żeby to, co tworzę, było lekkie i naprawdę użyteczne.</p>
+</div>
 </div>
 <div>
 <div class="profile-photo">
@@ -329,10 +354,6 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 <div class="fact"><div class="n">Poza pracą</div><div class="v">Piesze wycieczki, gitara</div></div>
 </div>
 </div>
-</div>
-<div class="story-box">
-<h3>Dlaczego to robię</h3>
-<p>Chcę, żeby psychologia była praktyczna i dostępna — dlatego zamiast poprzestawać na teorii, staram się przekładać ją na proste narzędzia online: bez logowania, bez zbierania danych, bez oceniania. Łączę to z moim zainteresowaniem technologią — programuję, eksperymentuję z narzędziami open source i dbam o to, żeby to, co tworzę, było lekkie i naprawdę użyteczne.</p>
 </div>
 </div>
 </section>
@@ -369,7 +390,7 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 <a class="card" href="http://tusplanner.wasiakpawel.pl/" target="_blank" rel="noopener">
 <div class="icon icon-6">🧩</div>
 <h3>TUS Planner</h3>
-<p>Aplikacja dla terapeutów prowadzących trening umiejętności społecznych (TUS) z dziećmi ze spektrum autyzmu: biblioteka scenariuszy, planer sesji, tracker postępów, generator historyjek społecznych z piktogramami ARASAAC oraz drukowalne raporty. Dane offline, bez logowania.</p>
+<p>Aplikacja dla terapeutów prowadzących trening umiejętności społecznych (TUS): biblioteka scenariuszy, planer sesji, tracker postępów i generator historyjek społecznych z piktogramami ARASAAC. Dane offline, bez logowania.</p>
 <span class="link">tusplanner.wasiakpawel.pl →</span>
 </a>
 <a class="card" href="https://kwestionariusze.wasiakpawel.pl/" target="_blank" rel="noopener">
@@ -387,7 +408,7 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 </div>
 </div>
 </section>
-<section class="section">
+<section class="section" style="padding-bottom:40px;">
 <div class="wrap">
 <div class="section-tag">Poza psychologią</div>
 <h2>Trochę więcej o mnie</h2>
@@ -400,7 +421,7 @@ transition:transform 0.15s ease, box-shadow 0.15s ease;
 </div>
 </div>
 </section>
-<section class="section" id="kontakt">
+<section class="section" id="kontakt" style="padding-top:40px;">
 <div class="wrap">
 <div class="contact-card">
 <h2>Napiszmy razem coś dobrego</h2>
@@ -425,5 +446,23 @@ Paweł Wasiak · Student psychologii, AHE w Łodzi · <a href="mailto:pwasiak30@
 </div>
 </div>
 </footer>
+<script>
+(function(){
+var toggle = document.getElementById('navToggle');
+var links = document.getElementById('navlinks');
+if(!toggle || !links) return;
+toggle.addEventListener('click', function(){
+var open = toggle.getAttribute('aria-expanded') === 'true';
+toggle.setAttribute('aria-expanded', String(!open));
+links.classList.toggle('open');
+});
+links.querySelectorAll('a').forEach(function(a){
+a.addEventListener('click', function(){
+toggle.setAttribute('aria-expanded', 'false');
+links.classList.remove('open');
+});
+});
+})();
+</script>
 </body>
 </html>
