@@ -238,6 +238,49 @@ color:var(--accent);
 .icon-5{background:rgba(58,158,255,0.15);}
 .icon-6{background:rgba(255,58,140,0.15);}
 .icon-7{background:rgba(2,146,169,0.15);}
+/* BANER TESTERZY — Nie pij dziś */
+.tester-banner{
+margin-top:36px;
+background:linear-gradient(135deg, rgba(255,93,58,0.16), rgba(255,138,58,0.05));
+border:1px solid rgba(255,93,58,0.4);
+border-left:4px solid var(--accent);
+border-radius:18px;
+padding:30px 32px;
+}
+.tester-banner h3{
+font-size:1.2rem;
+font-weight:800;
+letter-spacing:-0.01em;
+margin-bottom:10px;
+color:var(--text);
+}
+.tester-banner p{
+color:var(--text-dim);
+font-size:0.97rem;
+max-width:620px;
+margin-bottom:22px;
+}
+.tester-banner .tester-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+.tester-banner .btn{
+padding:12px 22px;
+font-size:0.9rem;
+}
+.tester-banner .btn-ghost{
+border-color:rgba(255,93,58,0.5);
+}
+.tester-banner .btn-ghost:hover{
+border-color:var(--accent);
+color:var(--accent);
+}
+@media(max-width:640px){
+.tester-banner{padding:24px 22px;}
+.tester-banner .tester-actions{flex-direction:column;}
+.tester-banner .tester-actions .btn{width:100%;justify-content:center;}
+}
 /* INTERESTS */
 .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;}
 .chip{
@@ -395,6 +438,14 @@ transition:background 0.18s ease, color 0.18s ease, transform 0.18s ease;
 <div class="section-tag">Projekty</div>
 <h2>Narzędzia, które tworzę</h2>
 <p style="color:var(--text-dim);max-width:640px;">Miejsca, w których łączę psychologię z praktyką — od edukacji o sektach, przez klasyfikacje diagnostyczne, wsparcie w trzeźwości i materiały AAC, po treści na YouTube.</p>
+<div class="tester-banner" role="note" aria-label="Zaproszenie do testowania aplikacji Nie pij dziś">
+<h3>🍊 Testuję aplikację „Nie pij dziś” przed publikacją w Google Play</h3>
+<p>Szukam 12 osób, które pomogą mi spełnić wymóg testowania Google — wystarczy zainstalować aplikację i zostawić ją na telefonie przez 2 tygodnie.</p>
+<div class="tester-actions">
+<a class="btn btn-primary" href="https://groups.google.com/g/nie-pij-dzis-testerzy" target="_blank" rel="noopener">Dołącz do grupy testerów</a>
+<a class="btn btn-ghost" href="https://play.google.com/apps/testing/io.github.pwasiak30.niepijdzis" target="_blank" rel="noopener">Zainstaluj aplikację testową</a>
+</div>
+</div>
 <div class="projects-grid">
 <a class="card" href="https://wolnaglowa.wasiakpawel.pl/" target="_blank" rel="noopener">
 <div class="icon icon-1">🧠</div>
