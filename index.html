@@ -258,7 +258,35 @@ color:var(--text);
 color:var(--text-dim);
 font-size:0.97rem;
 max-width:620px;
-margin-bottom:22px;
+margin-bottom:16px;
+}
+.tester-banner .tester-steps{
+color:var(--text-dim);
+font-size:0.92rem;
+max-width:600px;
+margin:0 0 22px 20px;
+}
+.tester-banner .tester-steps li{
+margin-bottom:6px;
+}
+.tester-banner .tester-steps li:last-child{
+margin-bottom:0;
+}
+.tester-banner .tester-steps strong{
+color:var(--text);
+}
+.tester-banner .tester-note{
+background:rgba(255,93,58,0.14);
+border:1px solid rgba(255,93,58,0.4);
+border-radius:10px;
+padding:12px 16px;
+font-size:0.9rem;
+color:var(--text);
+max-width:600px;
+margin-bottom:18px;
+}
+.tester-banner .tester-note strong{
+color:var(--accent);
 }
 .tester-banner .tester-actions{
 display:flex;
@@ -441,6 +469,12 @@ transition:background 0.18s ease, color 0.18s ease, transform 0.18s ease;
 <div class="tester-banner" role="note" aria-label="Zaproszenie do testowania aplikacji Nie pij dziś">
 <h3>🍊 Testuję aplikację „Nie pij dziś” przed publikacją w Google Play</h3>
 <p>Szukam 12 osób, które pomogą mi spełnić wymóg testowania Google — wystarczy zainstalować aplikację i zostawić ją na telefonie przez 2 tygodnie.</p>
+<div class="tester-note">⚠️ <strong>Ważne:</strong> aby zostać testerem, musisz wykonać <strong>wszystkie 3 kroki poniżej, w kolejności</strong> — samo zainstalowanie aplikacji bez wcześniejszego dołączenia do grupy i potwierdzenia udziału w Google Play się nie liczy.</div>
+<ol class="tester-steps">
+<li><strong>Dołącz do grupy testerów</strong> — kliknij pierwszy przycisk poniżej i dołącz do grupy Google.</li>
+<li><strong>Zostań testerem w Google Play</strong> — otwórz drugi przycisk i potwierdź udział w programie testowym.</li>
+<li><strong>Dopiero teraz zainstaluj aplikację</strong> i zostaw ją na telefonie przez 2 tygodnie.</li>
+</ol>
 <div class="tester-actions">
 <a class="btn btn-primary" href="https://groups.google.com/g/nie-pij-dzis-testerzy" target="_blank" rel="noopener">Dołącz do grupy testerów</a>
 <a class="btn btn-ghost" href="https://play.google.com/apps/testing/io.github.pwasiak30.niepijdzis" target="_blank" rel="noopener">Zainstaluj aplikację testową</a>
