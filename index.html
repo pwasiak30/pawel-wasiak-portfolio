@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paweł Wasiak — student psychologii | AHE Łódź</title>
-<meta name="description" content="Paweł Wasiak — student psychologii na AHE w Łodzi. Projekty edukacyjne: Wolna Głowa, wyszukiwarka ICD-11/DSM-5, Nie pij dziś, TUS Planner, kanał YouTube.">
+<meta name="description" content="Paweł Wasiak — student psychologii na AHE w Łodzi. Buduję ASD_Browser — przeglądarkę ograniczającą przeciążenie sensoryczne dla osób w spektrum autyzmu — oraz inne projekty: Wolna Głowa, wyszukiwarka ICD-11/DSM-5, Nie pij dziś, TUS Planner, kanał YouTube.">
 <style>
 :root{
 --bg: #0f0f14;
@@ -122,6 +122,17 @@ transition:transform 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 footer .social-row{justify-content:center;margin-top:18px;margin-bottom:0;}
 footer .social-icon{width:36px;height:36px;font-size:0.95rem;}
 footer .social-icon svg{width:16px;height:16px;}
+/* Ikony social w hero powielają pływający widget (social-fab) na desktopie — pokazujemy
+   je tylko tam, gdzie fab jest ukryty (mobile), żeby nie dublować tego samego zestawu linków. */
+@media(min-width:641px){
+.hero-inner .social-row{display:none;}
+}
+.skip-link{
+position:absolute;left:-999px;top:auto;
+background:var(--accent);color:#1a0e08;font-weight:700;
+padding:12px 20px;border-radius:0 0 10px 0;z-index:1000;
+}
+.skip-link:focus{left:0;top:0;}
 .btn{
 display:inline-flex;align-items:center;gap:8px;
 padding:14px 26px;border-radius:12px;
@@ -238,6 +249,88 @@ color:var(--accent);
 .icon-5{background:rgba(58,158,255,0.15);}
 .icon-6{background:rgba(255,58,140,0.15);}
 .icon-7{background:rgba(2,146,169,0.15);}
+.card .badge{
+position:absolute;top:18px;right:18px;
+font-size:0.72rem;font-weight:700;letter-spacing:0.02em;
+color:var(--accent3);background:rgba(34,211,165,0.12);
+padding:4px 10px;border-radius:999px;
+}
+/* Ostatnia karta w gridzie, gdy liczba kart jest nieparzysta — rozciąga się na całą szerokość
+   zamiast zostawiać puste miejsce obok. */
+.projects-grid > a:nth-child(odd):last-child{grid-column:1 / -1;}
+/* HERO TEASER — zapowiedź projektu flagowego tuż pod opisem, zanim ktokolwiek zdąży scrollować */
+.flagship-teaser{
+display:flex;align-items:center;gap:14px;
+margin-top:28px;padding:16px 20px;
+max-width:640px;
+background:linear-gradient(135deg, rgba(34,211,165,0.14), rgba(0,180,216,0.06));
+border:1px solid rgba(34,211,165,0.4);
+border-radius:14px;
+transition:transform 0.15s ease, border-color 0.15s ease;
+}
+.flagship-teaser:hover{transform:translateY(-2px);border-color:var(--accent3);}
+.flagship-teaser .ft-icon{font-size:1.6rem;flex-shrink:0;}
+.flagship-teaser .ft-text{color:var(--text-dim);font-size:0.92rem;line-height:1.45;}
+.flagship-teaser .ft-text strong{color:var(--text);}
+.flagship-teaser .ft-arrow{color:var(--accent3);font-weight:700;font-size:1.2rem;flex-shrink:0;margin-left:auto;}
+/* FEATURED PROJECT — ASD_Browser wyróżniony ponad zwykłym gridem projektów */
+.feature-project{
+display:block;
+margin-top:40px;
+padding:44px;
+position:relative;
+overflow:hidden;
+background:linear-gradient(135deg, rgba(34,211,165,0.14), rgba(0,180,216,0.05) 60%);
+border:1px solid rgba(34,211,165,0.45);
+border-radius:24px;
+box-shadow:0 0 0 1px rgba(34,211,165,0.08), 0 25px 60px rgba(0,180,216,0.12);
+transition:transform 0.2s ease, box-shadow 0.2s ease;
+}
+.feature-project:hover{transform:translateY(-4px);box-shadow:0 0 0 1px rgba(34,211,165,0.2), 0 30px 70px rgba(0,180,216,0.2);}
+.feature-project::before{
+content:"";position:absolute;top:-140px;right:-140px;
+width:380px;height:380px;border-radius:50%;
+background:radial-gradient(circle, rgba(34,211,165,0.25), transparent 70%);
+filter:blur(30px);
+}
+.feature-project .fp-top{
+display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+margin-bottom:20px;position:relative;
+}
+.feature-project .fp-tag{
+font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+color:var(--accent3);
+}
+.feature-project .fp-badge{
+font-size:0.75rem;font-weight:700;
+color:var(--accent3);background:rgba(34,211,165,0.14);
+border:1px solid rgba(34,211,165,0.4);
+padding:5px 12px;border-radius:999px;
+}
+.feature-project .fp-icon{
+width:68px;height:68px;border-radius:18px;
+display:flex;align-items:center;justify-content:center;
+font-size:2rem;margin-bottom:22px;
+background:rgba(0,180,216,0.16);
+position:relative;
+}
+.feature-project h3{
+font-size:clamp(1.6rem,3vw,2.1rem);
+font-weight:800;letter-spacing:-0.02em;
+margin-bottom:14px;position:relative;
+}
+.feature-project p{
+color:var(--text-dim);font-size:1.02rem;max-width:680px;
+margin-bottom:24px;position:relative;
+}
+.feature-project .fp-link{
+display:inline-flex;align-items:center;gap:8px;
+font-weight:700;font-size:0.98rem;color:var(--accent3);position:relative;
+}
+.feature-project .fp-link:hover{gap:12px;}
+@media(max-width:640px){
+.feature-project{padding:28px 24px;}
+}
 /* BANER TESTERZY — Nie pij dziś */
 .tester-banner{
 margin-top:36px;
@@ -380,6 +473,7 @@ transition:background 0.18s ease, color 0.18s ease, transform 0.18s ease;
 </style>
 </head>
 <body>
+<a class="skip-link" href="#o-mnie">Przejdź do treści</a>
 <a class="coffee-fab" href="https://suppi.pl/pawelwasiak" target="_blank" rel="noopener" title="Postaw mi kawę na Suppi">
 <span class="coffee-icon">☕</span>
 <span>Postaw kawę</span>
@@ -413,6 +507,11 @@ transition:background 0.18s ease, color 0.18s ease, transform 0.18s ease;
 <span class="eyebrow">Student psychologii · AHE Łódź</span>
 <h1>Psychologia spotyka <span class="grad">technologię.</span></h1>
 <p class="lead">Nazywam się Paweł Wasiak. Studiuję psychologię na Akademii Humanistyczno-Ekonomicznej w Łodzi i łączę ją z pasją do technologii — programuję, korzystam z Linuksa i tworzę proste narzędzia online, które realnie komuś pomagają.</p>
+<a class="flagship-teaser" href="#asd-browser">
+<span class="ft-icon">🌐</span>
+<span class="ft-text"><strong>Buduję ASD_Browser</strong> — przeglądarkę internetową bez przeciążenia sensorycznego dla osób w spektrum autyzmu. Mój najważniejszy projekt.</span>
+<span class="ft-arrow">↓</span>
+</a>
 <div class="hero-cta">
 <a href="#projekty" class="btn btn-primary">Zobacz moje projekty ↓</a>
 <a href="#o-mnie" class="btn btn-ghost">Poznaj mnie bliżej</a>
@@ -465,21 +564,17 @@ transition:background 0.18s ease, color 0.18s ease, transform 0.18s ease;
 <div class="wrap">
 <div class="section-tag">Projekty</div>
 <h2>Narzędzia, które tworzę</h2>
-<p style="color:var(--text-dim);max-width:640px;">Miejsca, w których łączę psychologię z praktyką — od edukacji o sektach, przez klasyfikacje diagnostyczne, wsparcie w trzeźwości i materiały AAC, po treści na YouTube.</p>
-<div class="tester-banner" role="note" aria-label="Zaproszenie do testowania aplikacji Nie pij dziś">
-<h3>🍊 Testuję aplikację „Nie pij dziś” przed publikacją w Google Play</h3>
-<p>Szukam 12 osób, które pomogą mi spełnić wymóg testowania Google — wystarczy zainstalować aplikację i zostawić ją na telefonie przez 2 tygodnie.</p>
-<div class="tester-note">⚠️ <strong>Ważne:</strong> aby zostać testerem, musisz wykonać <strong>wszystkie 3 kroki poniżej, w kolejności</strong> — samo zainstalowanie aplikacji bez wcześniejszego dołączenia do grupy i potwierdzenia udziału w Google Play się nie liczy.</div>
-<ol class="tester-steps">
-<li><strong>Dołącz do grupy testerów</strong> — kliknij pierwszy przycisk poniżej i dołącz do grupy Google.</li>
-<li><strong>Zostań testerem w Google Play</strong> — otwórz drugi przycisk i potwierdź udział w programie testowym.</li>
-<li><strong>Dopiero teraz zainstaluj aplikację</strong> i zostaw ją na telefonie przez 2 tygodnie.</li>
-</ol>
-<div class="tester-actions">
-<a class="btn btn-primary" href="https://groups.google.com/g/nie-pij-dzis-testerzy" target="_blank" rel="noopener">Dołącz do grupy testerów</a>
-<a class="btn btn-ghost" href="https://play.google.com/apps/testing/io.github.pwasiak30.niepijdzis" target="_blank" rel="noopener">Zainstaluj aplikację testową</a>
+<p style="color:var(--text-dim);max-width:640px;">Miejsca, w których łączę psychologię z praktyką — od projektowania dostępnej przeglądarki, przez edukację o sektach i klasyfikacje diagnostyczne, po wsparcie w trzeźwości, materiały AAC i treści na YouTube.</p>
+<a class="feature-project" id="asd-browser" href="https://asd-browser.wasiakpawel.pl/" target="_blank" rel="noopener">
+<div class="fp-top">
+<span class="fp-tag">⭐ Projekt flagowy</span>
+<span class="fp-badge">🚧 W przygotowaniu</span>
 </div>
-</div>
+<div class="fp-icon">🌐</div>
+<h3>ASD_Browser</h3>
+<p>Mój najważniejszy i najbardziej ambitny projekt — dedykowana przeglądarka internetowa ograniczająca przeciążenie sensoryczne i poznawcze u osób w spektrum autyzmu. Blokuje autoodtwarzające się wideo, migające animacje i chaos otwartych kart — internet zaprojektowany z myślą o realnych potrzebach sensorycznych, a nie o utrzymaniu uwagi za wszelką cenę. Projekt pionierski, łączący psychologię poznawczą z open source, i punkt wyjścia mojej pracy magisterskiej.</p>
+<span class="fp-link">asd-browser.wasiakpawel.pl →</span>
+</a>
 <div class="projects-grid">
 <a class="card" href="https://wolnaglowa.wasiakpawel.pl/" target="_blank" rel="noopener">
 <div class="icon icon-1">🧠</div>
@@ -523,6 +618,20 @@ transition:background 0.18s ease, color 0.18s ease, transform 0.18s ease;
 <p>Kanał YouTube, na którym tłumaczę zagadnienia psychologiczne w przystępny sposób — od mechanizmów kontroli w grupach po tematy związane ze zdrowiem psychicznym.</p>
 <span class="link">youtube.com/@psychologia_wasiak →</span>
 </a>
+</div>
+<div class="tester-banner" role="note" aria-label="Zaproszenie do testowania aplikacji Nie pij dziś">
+<h3>🍊 Testuję aplikację „Nie pij dziś” przed publikacją w Google Play</h3>
+<p>Szukam 12 osób, które pomogą mi spełnić wymóg testowania Google — wystarczy zainstalować aplikację i zostawić ją na telefonie przez 2 tygodnie.</p>
+<div class="tester-note">⚠️ <strong>Ważne:</strong> aby zostać testerem, musisz wykonać <strong>wszystkie 3 kroki poniżej, w kolejności</strong> — samo zainstalowanie aplikacji bez wcześniejszego dołączenia do grupy i potwierdzenia udziału w Google Play się nie liczy.</div>
+<ol class="tester-steps">
+<li><strong>Dołącz do grupy testerów</strong> — kliknij pierwszy przycisk poniżej i dołącz do grupy Google.</li>
+<li><strong>Zostań testerem w Google Play</strong> — otwórz drugi przycisk i potwierdź udział w programie testowym.</li>
+<li><strong>Dopiero teraz zainstaluj aplikację</strong> i zostaw ją na telefonie przez 2 tygodnie.</li>
+</ol>
+<div class="tester-actions">
+<a class="btn btn-primary" href="https://groups.google.com/g/nie-pij-dzis-testerzy" target="_blank" rel="noopener">Dołącz do grupy testerów</a>
+<a class="btn btn-ghost" href="https://play.google.com/apps/testing/io.github.pwasiak30.niepijdzis" target="_blank" rel="noopener">Zainstaluj aplikację testową</a>
+</div>
 </div>
 </div>
 </section>
