@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Paweł Wasiak">
+  <rect width="32" height="32" fill="#4D3593"/>
+  <rect width="32" height="4" fill="#D6001C"/>
+  <g transform="translate(5.697,28) scale(0.03143,-0.03143)" fill="#FFFFFF" fill-rule="evenodd">
+    <path d="M57 0V700H394Q492 700 563.5 668.0Q635 636 674.0 576.5Q713 517 713 436Q713 355 674.0 296.0Q635 237 563.5 204.5Q492 172 394 172H293V0ZM293 354H379Q428 354 451.5 376.0Q475 398 475 436Q475 474 451.5 496.0Q428 518 379 518H293Z"/>
+  </g>
+</svg>
