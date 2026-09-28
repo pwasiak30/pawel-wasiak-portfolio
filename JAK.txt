@@ -1,0 +1,31 @@
+Wgranie zmian do repo pwasiak30/pawel-wasiak-portfolio (GitHub Pages, gałąź main, domena wasiakpawel.pl).
+
+Pliki (ZASTĄP = już są w repo, NOWY = dodaj):
+  ZASTĄP  assets/routes-Be5_ALKJ.js
+  ZASTĄP  assets/styles-DcHJoAhz.css
+  ZASTĄP  index.html
+  ZASTĄP  og.jpg
+  NOWY    pawel-wasiak-hero.webp
+  NOWY    pawel-wasiak-portret.webp
+
+Wgrywanie z terminala (Gentoo). Do terminala wklejaj TYLKO komendę, bez znaku zachęty i bez wyniku poprzedniej.
+
+1. cd ~/pawel-wasiak-portfolio
+   cd = przejdź do katalogu; ~ = Twój katalog domowy. Jeśli nie ma kopii repo:
+   git clone https://github.com/pwasiak30/pawel-wasiak-portfolio.git   (clone = pobierz repo), potem cd.
+2. git pull
+   pobiera najnowszą wersję z GitHuba, żeby niczego nie nadpisać.
+3. unzip -o ~/Pobrane/NAZWA.zip -d .
+   unzip = rozpakuj; -o = nadpisuj bez pytania; -d . = rozpakuj tutaj (do repo), z podfolderami.
+   Popraw ścieżkę do zipa, jeśli pobrał się gdzie indziej.
+4. git status
+   pokazuje, co się zmieniło — sprawdź, że lista zgadza się z powyższą.
+5. git add -A
+   zaznacza wszystkie zmiany (także nowe pliki) do zapisu.
+6. git commit -m "Opis zmiany"
+   zapisuje zmiany lokalnie; -m = opis w cudzysłowie.
+7. git push
+   wysyła na GitHuba; Pages odświeża stronę w kilka minut (zakładka Actions w repo pokazuje postęp).
+
+Jeśli zmieniałeś og.jpg: wklej adres strony w developers.facebook.com/tools/debug i kliknij "Scrape Again",
+inaczej Facebook długo pokazuje stary podgląd.
