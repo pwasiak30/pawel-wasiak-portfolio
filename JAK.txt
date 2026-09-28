@@ -4,9 +4,10 @@ Pliki (ZASTĄP = już są w repo, NOWY = dodaj):
   ZASTĄP  assets/routes-Be5_ALKJ.js
   ZASTĄP  assets/styles-DcHJoAhz.css
   ZASTĄP  index.html
-  NOWY    pawel-wasiak-przemowa.mp4
-  NOWY    pawel-wasiak-przemowa.webm
-  NOWY    pawel-wasiak-przemowa.webp
+  NOWY    pawel-wasiak-scena.webp
+  USUŃ    pawel-wasiak-przemowa.mp4
+  USUŃ    pawel-wasiak-przemowa.webm
+  USUŃ    pawel-wasiak-przemowa.webp
 
 Wgrywanie z terminala (Gentoo). Do terminala wklejaj TYLKO komendę, bez znaku zachęty i bez wyniku poprzedniej.
 
